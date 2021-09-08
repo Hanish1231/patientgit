@@ -17,8 +17,6 @@ import com.htc.doctormanagement.entity.Doctor;
 public class DoctorService {
 	@Autowired
 	private DoctorInterface doctorInterface;
-	@Autowired
-	private AppointmentInterface appointmentInterface;
 
 	@Transactional
 	public ResponseEntity<Object> createDoctordetails(Doctor doctor) {
@@ -49,15 +47,6 @@ public class DoctorService {
 		return doctor;
 
 	}
-
-//	@GetMapping("/doctors/{appointmentId}")
-//	Doctor getByappointmentId(@PathVariable Long appointmentId)
-//	{
-//		Doctor doctor=null;
-//		doctor=repo.findById(appointmentId).get();
-//		return doctor;
-//		
-//	}
 
 	public Doctor findByspecialization(String specialization) {
 
