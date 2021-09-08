@@ -24,7 +24,7 @@ public class PatientControler {
 	private PatientInterface patientInterface;
 
 	@GetMapping("/patients/{patientId}")
-	public Patient getPatientById(@PathVariable Long patientId) {
+	public Patient getPatientById(@RequestParam Long patientId) {
 		Patient patient = null;
 
 		patient = patientInterface.findById(patientId).get();
