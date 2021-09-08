@@ -5,7 +5,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="patient1")
+@Table(name="patient")
 public class Patient {
 	public Patient(long patientId, String patientFirstName, String patientLastName, long phoneNumber, String disease) {
 		super();
