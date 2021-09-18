@@ -15,21 +15,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.htc.doctormanagement.dao.AppointmentInterface;
 import com.htc.doctormanagement.dao.DoctorInterface;
-import com.htc.doctormanagement.entity.Appointment;
 import com.htc.doctormanagement.entity.Doctor;
 import com.htc.doctormanagement.service.DoctorService;
 
 
 @RestController
-@RequestMapping("/api")
 
 public class DoctorCotroller {
 	
 		
 		@Autowired
 		private DoctorInterface doctorInterface;
-		@Autowired
-		private AppointmentInterface appointmentInterface;
 		@Autowired
 		private DoctorService doctorService;
 		
@@ -39,7 +35,6 @@ public class DoctorCotroller {
 				DoctorService doctorService) {
 			super();
 			this.doctorInterface = doctorInterface;
-			this.appointmentInterface = appointmentInterface;
 			this.doctorService = doctorService;
 		}
 
@@ -64,23 +59,15 @@ public class DoctorCotroller {
 		 
 		
 		@GetMapping("/doctors/{doctorId}")
-		Doctor getDoctorbyId(@PathVariable Long doctorId)
+		Doctor getDoctorbyId(@RequestParam Long doctorId)
 		{
 			Doctor doctor=null;
 			doctor=doctorInterface.findById(doctorId).get();
+			System.out.println("error1 in doctor"+doctor);
 			return doctor;
 			
 		}
-		
-//		@GetMapping("/doctors/{appointmentId}")
-//		Doctor getByappointmentId(@PathVariable Long appointmentId)
-//		{
-//			Doctor doctor=null;
-//			doctor=repo.findById(appointmentId).get();
-//			return doctor;
-//			
-//		}
-		
+				
 		 @GetMapping("/doctors/{specialization}")
 			public Doctor findByspecialization(@RequestParam String specialization) {
 
