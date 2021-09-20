@@ -23,8 +23,8 @@ public class PatientControler {
 	@Autowired
 	private PatientInterface patientInterface;
 
-	@GetMapping("/patients/{patientId}")
-	public Patient getPatientById(@RequestParam Long patientId) {
+	@GetMapping("/patients/H/{patientId}")
+	public Patient getPatientById(@PathVariable Long patientId) {
 		Patient patient = null;
 
 		patient = patientInterface.findById(patientId).get();
@@ -45,7 +45,7 @@ public class PatientControler {
 	}
 
 	@GetMapping("/patients/{phoneNumber}")
-	public Patient findByPhone_numbwe(@RequestParam Long phoneNumber) {
+	public Patient findByPhone_number(@RequestParam Long phoneNumber) {
 
 		return patientInterface.findByPhonenumber(phoneNumber);
 	}
